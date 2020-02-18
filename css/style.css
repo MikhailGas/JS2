@@ -27,8 +27,13 @@ body .header {
   background: #420dac;
   padding: 10px 10px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+}
+body .header .total {
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
 }
 body .header .cart-button {
   border: none;

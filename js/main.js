@@ -1,14 +1,69 @@
 class Cart {
     constructor() {
         this.cartList = [];
+        this.itemsNumber = 0;
+        this.list = {};
+        this.total = 0;
+        
+        document.querySelector('.cartBox').insertAdjacentHTML('beforeend', `<p class="totalCart">Сумма: 0</p>`);
     }
     
-    sddToCart(id){
-        this.cartList += CartItem.getItem(id);
+    addToCart(id){
+        const cartI = new CartItem(goodsList.allProducts[id])
+        this.list[this.itemsNumber] = goodsList.allProducts[id].price;
+        this.cartList = cartI.render(this.itemsNumber);
+        document.querySelector('.cartBox').insertAdjacentHTML('beforeend', this.cartList);
+        this.itemsNumber++;
+        document.querySelectorAll('.button_cartList').forEach(elem => {
+            elem.addEventListener('click', event => {
+                this.deleteFromCart(event.target.parentElement.attributes[1].value);
+                
+            })});
+        this.total = 0;
+        for(let key in this.list){
+            this.total += this.list[key];
+        }
+        
+        document.querySelector('.totalCart').innerText = `Сумма: ${this.total}`;
     }
     
+    deleteFromCart(id){
+        document.querySelectorAll('.cartList__item').forEach(elem => {
+            if(elem.attributes[1].value == id) {
+                elem.remove(elem);
+                
+            };
+            this.total = 0;
+            delete this.list[id];
+            for(let key in this.list){
+                this.total += this.list[key];
+            }
+
+            document.querySelector('.totalCart').innerText = `Сумма: ${this.total}`;
+        })
+    }
+    
+}
+
+class CartItem {
+    
+    constructor(goods, img='http://placehold.it/'){
+        this.img = img;
+        this.title = goods.title;
+        this.price = goods.price;
+        
+    };
     
     
+    render(itemsNumber) {
+        
+    return `<div class="cartList__item" data-id="${itemsNumber}">
+                <img src="${this.img}50x50/cccccc/ffffff.gif&text=${this.title}" />
+                <h3 class="h3 h3_cartList">${this.title}</h3>
+                <p class="p p_cartList">${this.price}</p>
+                <button class="button button_cartList">&otimes;</button>
+            </div>`;
+  }
 }
 
 
@@ -33,6 +88,10 @@ class GoodsList {
   constructor() {
     this.goods = [];
     this.allProducts = [];
+    this._fetchGoods();
+    this.render();
+    this.totalCost();
+
     
   }
   _fetchGoods() {
@@ -64,8 +123,10 @@ class GoodsList {
 
 }
 
-const list = new GoodsList();
-list._fetchGoods();
-list.render();
-list.totalCost();
-
+goodsList = new GoodsList();
+cart = new Cart();
+document.querySelectorAll('.button_goodsList').forEach(elem => {
+    elem.addEventListener('click', (event) => {
+   cart.addToCart(event.target.parentElement.attributes[1].value); 
+});
+});

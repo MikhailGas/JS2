@@ -6,9 +6,17 @@ body {
 body .h3_goodsList {
   color: black;
 }
+body .h3_cartList {
+  font-size: 15px;
+  margin: 5px;
+}
 body .p_goodsList {
   font-size: 30px;
   color: black;
+}
+body .p_cartList {
+  font-size: 18px;
+  margin: 5px;
 }
 body .button {
   outline: none;
@@ -20,6 +28,12 @@ body .button:hover {
 body .button_goodsList {
   height: 30px;
   border-radius: 5px;
+}
+body .button_cartList {
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  margin: 5px;
 }
 body .header {
   height: 40px;
@@ -35,7 +49,10 @@ body .header .total {
   font-size: 30px;
   font-weight: bold;
 }
-body .header .cart-button {
+body .header .cart {
+  position: relative;
+}
+body .header .cart .cart-button {
   border: none;
   height: 30px;
   width: 30px;
@@ -45,11 +62,30 @@ body .header .cart-button {
   background-size: 30px 30px;
   cursor: pointer;
 }
-body .header .cart-button:hover {
+body .header .cart .cart-button:hover {
   transition: all 0.2s;
   background-size: 33px 33px;
   height: 33px;
   width: 33px;
+}
+body .header .cart .cartBox {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  border: 1px solid black;
+  background: white;
+  z-index: 999;
+  padding: 10px 10px;
+}
+body .header .cart .cartBox .cartList__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+body .header .cart:hover .cartBox {
+  display: block;
 }
 body .main .goodsList {
   display: flex;

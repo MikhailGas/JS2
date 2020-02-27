@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+</head>
+<body>
+ <style>
+     body{
+     }
+     .one{
+         color: red;
+         font-weight: bold;
+     }
+     .form{
+         border: 1px solid black;
+         width: 500px;
+         margin: 0 auto;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: space-around;
+     }
+     .form__field{
+        margin: 10px;
+        width: 400px;
+     }
+     .warning{
+         border: 1px solid red;
+     }
+     .succed{
+         border: 1px solid green;
+     }
+</style>
+  <p class="string1"></p>
+  <p class="string2"></p>
+  
+  <form class="form">
+      <input type="text" class="form__field" name="name" placeholder="Введите имя">
+      <input type="tel" class="form__field" name="tel" placeholder="+7(000)000-0000">
+      <input type="text" class="form__field" name="email" placeholder="usermail@xxx.xxx">
+      <textarea name="mess" class="form__field" placeholder="Ваше сообщение"></textarea> 
+      <input type="submit" class="form__field">
+  </form>
+  
+   <script src="script.js"></script>
+    
+</body>
+</html>

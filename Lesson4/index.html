@@ -21,9 +21,15 @@
          align-items: center;
          justify-content: space-around;
      }
+     .form__label{
+         margin: 5px;
+         position: relative;
+         width: 400px;
+     }
      .form__field{
         margin: 10px;
         width: 400px;
+         padding: 5px;
      }
      .warning{
          border: 1px solid red;
@@ -31,13 +37,39 @@
      .succed{
          border: 1px solid green;
      }
+     .infblock_name, 
+     .infblock_tel, 
+     .infblock_email{
+         padding: 10px;
+         border: 1px solid red;
+         background-color: pink;
+         color: darkred;
+         border-radius: 10px;
+         position: absolute;
+         width: 250px;
+         top: 30px;
+         right: -287px;
+         display: none;
+     }
+     .alarm {
+         display: block;
+     }
 </style>
   <p class="string1"></p>
   <p class="string2"></p>
   
   <form class="form">
+      <label class="form__label" for="name">Введите имя
+      <div class="infblock_name ">Имя должно содержать только буквы</div>
+      </label>
       <input type="text" class="form__field" name="name" placeholder="Введите имя">
+      <label class="form__label" for="tel">Номер телефона в формате +7(ХХХ)ХХХ-ХХХХ
+      <div class="infblock_tel ">Номер телефона должен быть в формате +7(ХХХ)ХХХ-ХХХХ</div>
+      </label>
       <input type="tel" class="form__field" name="tel" placeholder="+7(000)000-0000">
+      <label class="form__label" for="email">e-mail в формате example@email.com
+      <div class="infblock_email ">Введите корректный email</div>
+      </label> 
       <input type="text" class="form__field" name="email" placeholder="usermail@xxx.xxx">
       <textarea name="mess" class="form__field" placeholder="Ваше сообщение"></textarea> 
       <input type="submit" class="form__field">

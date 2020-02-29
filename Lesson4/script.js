@@ -20,6 +20,8 @@ class Form{
         });
         this.regular = {
             name: /^[a-z\s]+$/gi,
+            tel: /^\+7\([0-9]{3}\)[0-9]{3}-[0-9]{4}$/,
+            email: /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/,
         }
         this._validator();
 
@@ -45,9 +47,11 @@ class Form{
         if(status) {
             document.querySelector(`[name="${key}"]`).classList.add('succed');
             document.querySelector(`[name="${key}"]`).classList.remove('warning');
+            document.querySelector(`.infblock_${key}`).classList.remove('alarm');
         }else{
             document.querySelector(`[name="${key}"]`).classList.add('warning');
             document.querySelector(`[name="${key}"]`).classList.remove('succed');
+            document.querySelector(`.infblock_${key}`).classList.add('alarm');
         }
     }
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <div id="app">
+       <h1>{{ message }}</h1>
+       <a :href="link">Google</a>
+       <input type="text" v-model="mess">
+       <p v-if="seen">Исчезающий</p>
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message:'Hello',
+                link: 'https://google.com',
+                seen:false,
+            }
+        })
+    </script>
+</body>
+</html>

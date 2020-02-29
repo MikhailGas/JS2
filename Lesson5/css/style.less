@@ -1,0 +1,116 @@
+@headerColor:#420dac;
+
+
+body{
+    max-width: 1200px;
+    margin: 0 auto;
+    .h3{
+        &_goodsList{
+            color: black;
+        }
+        &_cartList{
+            font-size: 15px;
+            margin: 5px;
+        }
+    }
+    .p {
+        &_goodsList{
+            font-size: 30px;
+            color: black;
+            
+        }
+        &_cartList{
+            font-size: 18px;
+            margin: 5px;
+        }
+    }
+    .button{
+        outline: none;
+        &:hover{
+            box-shadow: 0 0 6px 2px #cccccc;
+            cursor: pointer;
+        }
+        &_goodsList{
+            height: 30px;
+            border-radius: 5px;
+        }
+        &_cartList{
+            border: none;
+            background-color: transparent;
+            font-size: 15px;
+            margin: 5px;
+            
+        }
+    }
+    .header{
+        height: 40px;
+        margin-bottom: 10px;
+        background: @headerColor;
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .total{
+            color: red;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .cart{
+            position: relative;
+            .cart-button{
+                border: none;
+                height: 30px;
+                width: 30px;
+                background-color: transparent;
+                background-image: url(../img/cart1.png);
+                background-repeat: no-repeat;
+                background-size: 30px 30px;
+                cursor: pointer;
+                &:hover{
+                    transition: all 0.2s;
+                    background-size: 33px 33px;
+                    height: 33px;
+                    width: 33px;
+
+                }
+            }
+            .cartBox{
+                display: none;
+                position: absolute;
+                top:30px;
+                right: 0;
+                border: 1px solid black;
+                background: white;
+                z-index: 999;
+                padding:10px 10px;
+                .cartList__item{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+            }
+            &:hover .cartBox{
+                display: block;
+            }    
+        }
+        
+    }
+    .main{
+        .goodsList{
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            
+            &__item{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border: 1px solid #cccccc;
+                padding: 5px 5px;
+                margin-right: 10px;
+            }
+        }
+        
+    }
+}

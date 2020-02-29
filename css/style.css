@@ -84,9 +84,6 @@ body .header .cart .cartBox .cartList__item {
   align-items: center;
   margin-bottom: 5px;
 }
-body .header .cart:hover .cartBox {
-  display: block;
-}
 body .main .goodsList {
   display: flex;
   justify-content: flex-start;

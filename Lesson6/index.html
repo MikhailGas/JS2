@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>eShop</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ <div id="app">
+    <header class="header">
+        <form>
+            <input type="text" v-model="searchLine">
+            <button @click="FilterGoods($event)">Search</button>
+        </form>
+        <div class="cart">
+           <div v-if="showCount" class="goodsCount">{{ goodsCount }}</div>
+            <button @click="cartListShow()" class="cart-button" type="button"></button>
+            <div class="cartBox"  v-if="isVisibleCart">
+               
+                <p v-if="noGoods">Нет данных</p>
+                <div class="cart__item" v-for="product of cartList">
+                    <img :src="`${imgCatalog}/100x100/cccccc/ffffff.gif&text=${product.product_name}`" alt="">
+                    <div class="cart__text">
+                        <p class="cart__text_margin">{{ product.product_name }}</p>
+                        <p class="cart__text_margin">{{ product.product_quantity }}</p>
+                        <p class="cart__text_margin">{{ product.price }}</p>
+                        <p class="cart__text_margin">{{ product.price * product.product_quantity }}</p>
+                        <button @click="delProduct(product.id_product)" class="button button_cartDel">Удалить</button>
+                        
+                    </div>
+                </div>
+                <p>Сумма: {{ totalPrice }} </p>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="goodsList" >
+            <div class="goodsList__item" v-for="product of goods" :key="product.id_product">
+               <img :src="`${imgCatalog}/200x150/cccccc/ffffff.gif&text=${product.product_name}`" alt="">
+               <div>
+                   <h3 class="h3 h3_goodsList">{{ product.product_name }}</h3>
+                    <p class="p p_goodsList">{{ product.price }}</p>
+                    <button @click="addToCart(product.id_product)" class="button button_goodsList">Добавить в корзину</button>
+               </div> 
+            </div>
+            
+        </div>
+    </main>
+ </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

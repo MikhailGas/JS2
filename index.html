@@ -4,19 +4,42 @@
 <head>
   <title>eShop</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="total"></div>
-    <div class="cart">
-        <button class="cart-button" type="button"></button>
-        <div class="cartBox"></div>
-    </div>
-  </header>
-  <main class="main">
-    <div class="goodsList"></div>
-  </main>
-  <script src="js/main.js"></script>
+    <style>
+        .list{
+            color:darkblue ;
+            font-style: italic;
+            font-size: 30px;
+            text-decoration: underline;
+        }
+    </style>
+  <div id="app-2">
+  <span v-bind:title="message">
+    Наведи на меня курсор на пару секунд,
+    чтобы увидеть динамически связанное значение title!
+  </span>
+  <div title="clock">{{ time }}</div>
+  
+</div>
+ <div id="app-7">
+  <ol>
+    <!--
+      Теперь мы можем передать каждому компоненту todo-item объект
+      с информацией о задаче, который будет динамически меняться.
+      Мы также определяем для каждого компонента "key",
+      значение которого мы разберём далее в руководстве.
+    -->
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id"
+    ></todo-item>
+  </ol>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/vue.js"></script>
 </body>
 </html>

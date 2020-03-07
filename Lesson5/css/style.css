@@ -52,6 +52,20 @@ body .header .total {
 body .header .cart {
   position: relative;
 }
+body .header .cart .goodsCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  font-size: 11px;
+}
 body .header .cart .cart-button {
   border: none;
   height: 30px;
@@ -68,8 +82,15 @@ body .header .cart .cart-button:hover {
   height: 33px;
   width: 33px;
 }
+body .header .cart .cart-button:active {
+  transition: all 0.2s;
+  background-size: 30px 30px;
+  height: 30px;
+  width: 30px;
+}
 body .header .cart .cartBox {
-  display: none;
+  display: block;
+  min-width: 300px;
   position: absolute;
   top: 30px;
   right: 0;
@@ -83,6 +104,21 @@ body .header .cart .cartBox .cartList__item {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
+}
+body .header .cart__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+body .header .cart__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .header .cart__text_margin {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 body .main .goodsList {
   display: flex;

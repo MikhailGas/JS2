@@ -57,6 +57,20 @@ body{
         }
         .cart{
             position: relative;
+            .goodsCount{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: red;
+                color: white;
+                position: absolute;
+                top: -8px;
+                right: -10px;
+                font-size: 11px;
+            }
             .cart-button{
                 border: none;
                 height: 30px;
@@ -73,9 +87,16 @@ body{
                     width: 33px;
 
                 }
+                &:active{
+                    transition: all 0.2s;
+                    background-size: 30px 30px;
+                    height: 30px;
+                    width: 30px;
+                }
             }
             .cartBox{
-                display: none;
+                display: block;
+                min-width: 300px;
                 position: absolute;
                 top:30px;
                 right: 0;
@@ -90,7 +111,23 @@ body{
                     margin-bottom: 5px;
                 }
             }
-             
+            &__item{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 5px;
+            }
+            &__text{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &_margin{
+                    margin-right: 10px;
+                    margin-left: 10px;
+                }
+                
+            }
+               
         }
         
     }

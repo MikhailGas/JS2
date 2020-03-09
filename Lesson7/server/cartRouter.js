@@ -23,7 +23,7 @@ router.put('/:id', (req, res) => {
    handler(req, res, 'change', './server/db/userCart.json');
 });
 
-router.del('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     handler(req, res, 'delete', './server/db/userCart.json');
 })
 

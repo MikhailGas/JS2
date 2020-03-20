@@ -1,20 +1,23 @@
 const cartItem = {
     props: ['cartItem', 'img'],
     template: `
-                <div class="cart-item">
-                    <div class="product-bio">
-                        <img class="cart-img" :src="img+'good'+cartItem.id_product+'.jpg'" alt="Some image">
-                        <div class="product-desc">
-                            <p class="product-title">{{cartItem.product_name}}</p>
-                            <p class="product-quantity">Количество: {{cartItem.quantity}}</p>
-                            <p class="product-single-price">{{cartItem.price}}₽ за единицу</p>
+                
+                        <div class="cart__products">
+                            <img :src="cartItem.img" alt="cart_1" class="product__cart__img">
+                            <div class="product__cart__text">
+                                <a href="#" class="product__cart__name">{{ cartItem.product_name }}</a>
+                                <div class="product__raiting">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="product__cart__price">{{ cartItem.quantity }}  x   {{ cartItem.price }}</p>
+                            </div>
+                            <p @click="$emit('remove', cartItem)" class="product__delete"><i class="fa fa-times-circle"></i></p>
                         </div>
-                    </div>
-                    <div class="right-block">
-                        <p class="product-price">{{cartItem.quantity*cartItem.price}}₽</p>
-                        <button class="del-btn" @click="$emit('remove', cartItem)">&times;</button>
-                    </div>
-                </div>
+                
     `
 };
 
@@ -31,11 +34,11 @@ const cart = {
         addProduct(product){
             let find = this.cartItems.find(el => el.id_product === product.id_product);
             if(find){
-                this.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: 1});
+                this.$parent.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: 1});
                 find.quantity++;
             } else {
                 let prod = Object.assign({quantity: 1}, product);
-                this.$parent.postJson('/api/cart', prod)
+                this.$parent.$parent.postJson('/api/cart', prod)
                     .then(data => {
                         if (data.result === 1) {
                             this.cartItems.push(prod);
@@ -44,15 +47,16 @@ const cart = {
             }
         },
         remove(item) {
+            console.log(item);
             if (item.quantity > 1) {
-                this.$parent.putJson(`/api/cart/${item.id_product}`, {quantity: -1})
+                this.$parent.$parent.putJson(`/api/cart/${item.id_product}`, {quantity: -1})
                     .then(data => {
                         if (data.result === 1) {
                             item.quantity--;
                         }
                     });
             } else {
-                this.$parent.deleteJson(`/api/cart/${item.id_product}`)
+                this.$parent.$parent.deleteJson(`/api/cart/${item.id_product}`)
                     .then(data => {
                         if (data.result === 1) {
                             this.cartItems.splice(this.cartItems.indexOf(item), 1);
@@ -62,17 +66,29 @@ const cart = {
         },
     },
     mounted(){
-        this.$parent.getJson('/api/cart')
+        this.$parent.$parent.getJson('/api/cart')
             .then(data => {
                 for(let el of data.contents){
                     this.cartItems.push(el);
                 }
             });
     },
+    computed:{
+        total(){
+            let tot = 0;
+            this.cartItems.forEach(el => {
+                tot += el.price * el.quantity;
+                
+            });
+            return tot;
+            
+        }
+    },
     template: `
-        <div>
-            <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
-            <div class="cart-block" v-show="showCart">
+        <div class="header__cart">
+            <img  src="/img/cart.svg" alt="cart" @click="showCart = !showCart">
+            
+            <div class="cart__box" v-show="showCart">
                 <p v-if="!cartItems.length">Корзина пуста</p>
                 <cart-item class="cart-item" 
                 v-for="item of cartItems" 
@@ -81,6 +97,12 @@ const cart = {
                 :img="imgCart"
                 @remove="remove">
                 </cart-item>
+             <div class="total__price">
+                            <p class="total">TOTAL</p>
+                            <p class="price">{{ total }}</p>
+                        </div>
+                        <a href="checkout.html" class="cart__button">Checkout</a>
+                        <router-link to="/cart" class="cart__button">Перейти в корзину</router-link>
             </div>
         </div>`
 };

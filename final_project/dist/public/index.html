@@ -5,38 +5,23 @@
     <title>Интернет-магазин</title>
 </head>
 <body>
-<h1>Hello world</h1>
-<div id="app">
 
+<div id="app">
+    <error ref="error"></error>
    
-    <header>
-        <div class="logo">Интернет-магазин</div>
-        <div class="cart">
-            <search></search>
-            <cart ref="cart"></cart>
-        </div>
-    </header>
+    <headercomp ref="header"></headercomp>
+    
     <main>
+      <router-view></router-view>
+       <!--
         <products ref="products"></products>
-        <error ref="error"></error>
+        <error ref="error"></error>-->
     </main>
+    <footercomp></footercomp>
 </div>
-<script>
-    class A{
-        method(text){
-            console.log(text + ' world');
-        }
-    }
-    
-    class B extends A{
-        
-    }
-    const a = new A();
-    const text = new B();
-    text.method('Hello');
-    
-</script>
+
 <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script type="text/javascript" src="/js/main.js"></script></body>
 </html>

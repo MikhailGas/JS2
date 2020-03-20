@@ -8,19 +8,11 @@ app.use(express.json());
 app.use('/', express.static(path.resolve(__dirname, '../public')));
 app.use('/api/cart', cartRouter);
 
-//const catalogImgPath = path.resolve(__dirname, '../public/img')
-/*app.get('/img', (req, res) => {
-    res.send(catalogImgPath)
-})*/
-//app.use('/img', express.static(path.resolve(__dirname, '../public/img')));
 
-/**
- * Используем path дабы избежать проблем с относительными путями до файлов. Делаем их абсолютными.
- */
 const catalogJSONPath = path.resolve(__dirname, './db/products.json');
 
 app.get('/api/products', (req, res) => {
-    console.log('Hello')
+    
     fs.readFile(catalogJSONPath, 'utf-8', (err, data) => {
         if (err) {
             res.send(JSON.stringify({result: 0, text: err}));

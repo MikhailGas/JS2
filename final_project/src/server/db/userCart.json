@@ -2,23 +2,26 @@
     "amount": 46600,
     "countGoods": 2,
     "contents": [
-        {
+         {
             "quantity": 2,
-            "id_product": 103,
-            "product_name": "Ноутбук",
-            "price": 45600
-        },
-        {
+            "id_product": 101,
+            "product_name": "Футболка",
+            "price": 1000,
+            "img": "/img/product__1.jpg"
+          },
+          {
             "quantity": 1,
             "id_product": 102,
-            "product_name": "Gamepad",
-            "price": 3000
-        },
-        {
+            "product_name": "Блузка",
+            "price": 3000,
+            "img": "/img/product__2.jpg"
+          },
+          {
             "quantity": 1,
-            "id_product": 101,
-            "product_name": "Keyboard",
-            "price": 1600
-        }
+            "id_product": 103,
+            "product_name": "Куртка",
+            "price": 45600,
+            "img": "/img/product__3.jpg"
+          }
     ]
 }

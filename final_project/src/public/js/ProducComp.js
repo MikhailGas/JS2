@@ -7,21 +7,22 @@ const product = {
              * то мы легко можем получить доступ к ним используя свойство $root.
              * $parent можно использовать для доступа к родительскому экземпляру из дочернего.
              */
-            cartAPI: this.$root.$refs.cart, // добираемся до компонента корзины, чтобы далее использовать метод добавления
+            cartAPI: this.$root.$refs.header.$refs.cart, // добираемся до компонента корзины, чтобы далее использовать метод добавления
+            
         };
     },
 
     template: `
-    <div class="product-item">
-                <img :src="product.img" alt="Some img">
-                <div class="desc">
-                    <h3>{{product.product_name}}</h3>
-                    <p>{{product.price}}₽</p>
-                    <button class="buy-btn" @click="cartAPI.addProduct(product)">Купить</button>
-<!-- 1                    <button class="buy-btn" @click="$root.$refs.cart.addProduct(product)">Купить</button>-->
-<!-- 2                    <button class="buy-btn" @click="$parent.$parent.$refs.cart.addProduct(product)">Купить</button>-->
+    <div class="product">
+                <a href="#"><img :src="product.img" alt="Product__1" class="product__img" ></a>
+                <div class="product__text">
+                    <a href="" class="product__name">{{product.product_name}}</a>
+                    <div class="product__price">{{product.price}}₽</div>
                 </div>
+                <a @click="cartAPI.addProduct(product)" class="add_to_cart"><img class="add_to_cart_img" src="/img/Forma_1_copy.svg" alt="">Add to cart</a>
             </div>
+
+    
     `
 };
 
@@ -41,7 +42,8 @@ const products = {
         }
     },
     mounted(){
-        this.$parent.getJson('/api/products')
+        
+        this.$parent.$parent.getJson('/api/products')
             .then(data => {
                 for(let el of data){
                     this.products.push(el);
@@ -50,7 +52,7 @@ const products = {
             });
     },
     template: `
-        <div class="products">
+        <div class="products-box">
             <product v-for="item of filtered" :key="item.id_product" :img="imgCatalog" :product="item"></product>
         </div>
     `

@@ -3,18 +3,25 @@
     "countGoods": 2,
     "contents": [
         {
-            "quantity": 2,
-            "id_product": 107,
-            "product_name": "Штаны",
-            "price": 7000,
-            "img": "/img/product__7.jpg"
+            "quantity": 5,
+            "id_product": 101,
+            "product_name": "Футболка",
+            "price": 1000,
+            "img": "/img/product__1.jpg"
         },
         {
-            "quantity": 2,
-            "id_product": 106,
-            "product_name": "Шляпа",
-            "price": 7000,
-            "img": "/img/product__6.jpg"
+            "quantity": 1,
+            "id_product": 102,
+            "product_name": "Блузка",
+            "price": 3000,
+            "img": "/img/product__2.jpg"
+        },
+        {
+            "quantity": 1,
+            "id_product": 103,
+            "product_name": "Куртка",
+            "price": 45600,
+            "img": "/img/product__3.jpg"
         }
     ]
 }

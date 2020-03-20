@@ -1408,6 +1408,12 @@ a {
 .cart-products__img{
     width: 100px;
 }
+.cart-remove:hover{
+    border-radius: 50%;
+    color:#f16d7f;
+    cursor: pointer;
+    box-shadow:  0 0 2px 3px #ccc;
+}
 .cart-table__data .cart-products__name {
   margin-bottom: 38px;
 }

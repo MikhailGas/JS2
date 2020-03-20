@@ -64,6 +64,24 @@ const cart = {
                     });
             }
         },
+        changeQuantity(item){
+            
+            if (item.quantity != 0) {
+               this.$parent.$parent.putJson(`/api/cart/${item.id_product}`, {quantity: +item.quantity})
+                    .then(data => {
+                        if (data.result === 1) {
+                            
+                        }
+                    });
+            } else {
+                this.$parent.$parent.deleteJson(`/api/cart/${item.id_product}`)
+                    .then(data => {
+                        if (data.result === 1) {
+                            this.cartItems.splice(this.cartItems.indexOf(item), 1);
+                        }
+                    });
+            }
+        }
     },
     mounted(){
         this.$parent.$parent.getJson('/api/cart')

@@ -14,18 +14,17 @@ const cartPage = {
     methods:{
         subtotal(item){
             return item.price * item.quantity;
+        },
+        change(item){
+            console.log('Hello');
+            this.cartAPI.changeQuantity(item);
         }
     },
     mounted(){
-        /*this.$parent.getJson('/api/cart')
-            .then(data => {
-                for(let el of data.contents){
-                    this.cartItems.push(el);
-                }
-            });*/
         this.$parent.$refs.header.$refs.cart.showCart = false;
-        console.log(cart.methods);
+        
     },
+    
     template: `
         <div>
 
@@ -61,10 +60,10 @@ const cartPage = {
                     </div>
                 </td>
                 <td class="cart-table__data">{{ item.price }}</td>
-                <td class="cart-table__data"><input v-model="item.quantity" class="count" type="text" value="2"></td>
+                <td class="cart-table__data"><input v-model="item.quantity" @change="change(item)" class="count" type="text" value="2"></td>
                 <td class="cart-table__data">FREE</td>
                 <td class="cart-table__data"> {{ subtotal(item) }} </td>
-                <td class="cart-table__data"><a @click="cartAPI.remove(item)"><i class="fa fa-times-circle" ></i></a></td>
+                <td class="cart-table__data"><a class="cart-remove" @click="cartAPI.remove(item)"><i class="fa fa-times-circle" ></i></a></td>
             </tr>
             
         </table>

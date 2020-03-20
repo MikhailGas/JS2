@@ -60,63 +60,8 @@
         "action": "change"
     },
     {
-        "time": "20 Mar 2020, 10:23:41 am",
+        "time": "20 Mar 2020, 2:50:39 pm",
         "prod_name": "Футболка",
         "action": "change"
-    },
-    {
-        "time": "20 Mar 2020, 10:23:49 am",
-        "prod_name": "Футболка",
-        "action": "remove"
-    },
-    {
-        "time": "20 Mar 2020, 11:02:20 am",
-        "prod_name": "Блузка",
-        "action": "remove"
-    },
-    {
-        "time": "20 Mar 2020, 11:02:29 am",
-        "prod_name": "Куртка",
-        "action": "remove"
-    },
-    {
-        "time": "20 Mar 2020, 11:03:01 am",
-        "prod_name": "Шорты",
-        "action": "add"
-    },
-    {
-        "time": "20 Mar 2020, 11:03:03 am",
-        "prod_name": "Штаны",
-        "action": "add"
-    },
-    {
-        "time": "20 Mar 2020, 11:03:05 am",
-        "prod_name": "Шляпа",
-        "action": "add"
-    },
-    {
-        "time": "20 Mar 2020, 11:03:07 am",
-        "prod_name": "Шляпа",
-        "action": "change"
-    },
-    {
-        "time": "20 Mar 2020, 11:03:08 am",
-        "prod_name": "Штаны",
-        "action": "change"
-    },
-    {
-        "time": "20 Mar 2020, 11:03:09 am",
-        "prod_name": "Шорты",
-        "action": "change"
-    },
-    {
-        "time": "20 Mar 2020, 11:03:23 am",
-        "prod_name": "Шорты",
-        "action": "change"
-    },
-    {
-        "time": "20 Mar 2020, 11:03:28 am",
-        "prod_name": "Шорты",
-        "action": "remove"
     }
 ]
